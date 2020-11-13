@@ -1,0 +1,62 @@
+services:
+    artis_cms_plugin.form.type.page_images:
+        class: DH\ArtisCmsPlugin\Form\Type\PageImagesType
+        arguments:
+            - "%artis_cms_plugin.model.page_images.class%"
+            - ['artis']
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.type.frequently_asked_question_section:
+        class: DH\ArtisCmsPlugin\Form\Type\FrequentlyAskedQuestionSectionType
+        arguments:
+            - "%artis_cms_plugin.model.frequently_asked_question_section.class%"
+            - ['artis']
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.type.translation.frequently_asked_question_section:
+        class: DH\ArtisCmsPlugin\Form\Type\Translation\FrequentlyAskedQuestionSectionTranslationType
+        arguments:
+            - "%artis_cms_plugin.model.frequently_asked_question_section_translation.class%"
+            - ['artis']
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.type.frequently_asked_question_section_image:
+        class: DH\ArtisCmsPlugin\Form\Type\FrequentlyAskedQuestionSectionImageType
+        arguments:
+            - "%artis_cms_plugin.model.frequently_asked_question_section_image.class%"
+            - ['artis']
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.type.map_point:
+        class: DH\ArtisCmsPlugin\Form\Type\MapPointType
+        arguments:
+            - "%artis_cms_plugin.model.map_point.class%"
+            - ['artis']
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.type.map_point_translation:
+        class: DH\ArtisCmsPlugin\Form\Type\Translation\MapPointTranslationType
+        arguments:
+            - "%artis_cms_plugin.model.map_point_translation.class%"
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.extension.type.frequently_asked_question:
+        class: DH\ArtisCmsPlugin\Form\Extension\FrequentlyAskedQuestionTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: BitBag\SyliusCmsPlugin\Form\Type\FrequentlyAskedQuestionType }
+
+    artis_cms_plugin.form.extension.type.page:
+        class: DH\ArtisCmsPlugin\Form\Extension\PageTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: BitBag\SyliusCmsPlugin\Form\Type\PageType }
+
+    artis_cms_plugin.form.extension.type.media:
+        class: DH\ArtisCmsPlugin\Form\Extension\MediaTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: BitBag\SyliusCmsPlugin\Form\Type\MediaType }

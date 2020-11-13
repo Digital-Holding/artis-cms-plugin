@@ -1,0 +1,5 @@
+sylius_resource:
+    resources:
+        bitbag_sylius_cms_plugin.media:
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\Media

@@ -1,0 +1,14 @@
+sylius_resource:
+    resources:
+        artis_cms_plugin.map_point:
+            driver: doctrine/orm
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\MapPoint
+                interface: DH\ArtisCmsPlugin\Entity\MapPointInterface
+                form: DH\ArtisCmsPlugin\Form\Type\MapPointType
+                repository: DH\ArtisCmsPlugin\Repository\MapPointRepository
+            translation:
+                classes:
+                    model: DH\ArtisCmsPlugin\Entity\MapPointTranslation
+                    form: DH\ArtisCmsPlugin\Form\Type\Translation\MapPointTranslationType
+                    interface: DH\ArtisCmsPlugin\Entity\MapPointTranslationInterface

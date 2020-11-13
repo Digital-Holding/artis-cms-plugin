@@ -1,0 +1,17 @@
+{% extends '@BitBagSyliusCmsPlugin/Form/theme.html.twig' %}
+
+{% block artis_cms_plugin_page_autocomplete_choice_row %}
+    {{ form_row(form, {'remote_url': path('bitbag_sylius_cms_plugin_admin_ajax_page_by_name_phrase'), 'load_edit_url': path('bitbag_sylius_cms_plugin_admin_ajax_page_by_code')}) }}
+{% endblock %}
+
+{% block artis_cms_plugin_page_images_widget %}
+    {{ block('sylius_image_widget') }}
+{% endblock %}
+
+{% block artis_cms_plugin_frequently_asked_question_section_image_widget %}
+    {{ block('sylius_image_widget') }}
+{% endblock %}
+
+{% block artis_cms_plugin_frequently_asked_question_section_autocomplete_choice_row %}
+    {{ form_row(form, {'remote_url': path('artis_cms_plugin_admin_frequently_asked_question_section_by_name_phrase'), 'load_edit_url': path('artis_cms_plugin_admin_frequently_asked_question_section_by_code')}) }}
+{% endblock %}

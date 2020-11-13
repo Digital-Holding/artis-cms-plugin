@@ -1,0 +1,12 @@
+sylius_resource:
+    resources:
+        bitbag_sylius_cms_plugin.page:
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\Page
+                repository: DH\ArtisCmsPlugin\Repository\PageRepository
+
+        artis_cms_plugin.page_images:
+            driver: doctrine/orm
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\PageImages
+                form: DH\ArtisCmsPlugin\Form\Type\PageImagesType

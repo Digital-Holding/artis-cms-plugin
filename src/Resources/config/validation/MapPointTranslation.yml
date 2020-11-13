@@ -1,0 +1,12 @@
+DH\ArtisCmsPlugin\Entity\MapPointTranslation:
+    properties:
+        name:
+            - NotBlank:
+                  message: artis_cms_plugin.map_point.name.not_blank
+                  groups: [artis]
+            - Length:
+                  min: 2
+                  max: 250
+                  minMessage: artis_cms_plugin.map_point.name.min_length
+                  maxMessage: artis_cms_plugin.map_point.name.max_length
+                  groups: [artis]

@@ -1,0 +1,6 @@
+imports:
+    - { resource: resources/frequently_asked_question.yml }
+    - { resource: resources/media.yml }
+    - { resource: resources/frequently_asked_question_section.yml }
+    - { resource: resources/map_point.yml }
+    - { resource: resources/page.yml }

@@ -1,0 +1,20 @@
+sylius_resource:
+    resources:
+        artis_cms_plugin.frequently_asked_question_section:
+            driver: doctrine/orm
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\FrequentlyAskedQuestionSection
+                interface: DH\ArtisCmsPlugin\Entity\FrequentlyAskedQuestionSectionInterface
+                form: DH\ArtisCmsPlugin\Form\Type\FrequentlyAskedQuestionSectionType
+                repository: DH\ArtisCmsPlugin\Repository\FrequentlyAskedQuestionSectionRepository
+            translation:
+                classes:
+                    model: DH\ArtisCmsPlugin\Entity\FrequentlyAskedQuestionSectionTranslation
+                    interface: DH\ArtisCmsPlugin\Entity\FrequentlyAskedQuestionSectionTranslationInterface
+
+        artis_cms_plugin.frequently_asked_question_section_image:
+            driver: doctrine/orm
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\FrequentlyAskedQuestionSectionImage
+                interface: DH\ArtisCmsPlugin\Entity\FrequentlyAskedQuestionSectionImageInterface
+                form: DH\ArtisCmsPlugin\Form\Type\FrequentlyAskedQuestionSectionImageType

@@ -1,0 +1,46 @@
+artis_cms_plugin_admin_frequently_asked_question_section:
+    resource: |
+        alias: artis_cms_plugin.frequently_asked_question_section
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: artis_cms_plugin_admin_frequently_asked_question_section
+        except: ['show']
+        permission: true
+        vars:
+            all:
+                header: artis_cms_plugin.ui.faq_section_header
+                subheader: artis_cms_plugin.ui.faq_section_subheader
+                templates:
+                    form: "@DHArtisCmsPlugin/FrequentlyAskedQuestionSection/Crud/_form.html.twig"
+            index:
+                icon: help
+    type: sylius.resource
+
+artis_cms_plugin_admin_frequently_asked_question_section_by_name_phrase:
+    path: /ajax/frequently-asked-question-sections/search
+    methods: [GET]
+    defaults:
+        _format: json
+        _controller: artis_cms_plugin.controller.frequently_asked_question_section:indexAction
+        _sylius:
+            serialization_groups: [Autocomplete]
+            permission: true
+            repository:
+                method: findByNamePart
+                arguments:
+                    phrase: $phrase
+                    locale: null
+
+artis_cms_plugin_admin_frequently_asked_question_section_by_code:
+    path: /ajax/frequently-asked-question-sections/code
+    methods: [GET]
+    defaults:
+        _format: json
+        _controller: artis_cms_plugin.controller.frequently_asked_question_section:indexAction
+        _sylius:
+            serialization_groups: [Autocomplete]
+            permission: true
+            repository:
+                method: findBy
+                arguments: [code: $code]

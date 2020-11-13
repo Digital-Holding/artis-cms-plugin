@@ -1,0 +1,16 @@
+services:
+    artis_cms_plugin.event_listener.page_images_upload:
+        class: Sylius\Bundle\CoreBundle\EventListener\ImagesUploadListener
+        arguments:
+            - "@sylius.image_uploader"
+        tags:
+            - { name: kernel.event_listener, event: bitbag_sylius_cms_plugin.page.pre_create, method: uploadImages }
+            - { name: kernel.event_listener, event: bitbag_sylius_cms_plugin.page.pre_update, method: uploadImages }
+
+    artis_cms_plugin.event_listener.frequently_asked_question_section_image_upload:
+        class: Sylius\Bundle\CoreBundle\EventListener\ImageUploadListener
+        arguments:
+            - "@sylius.image_uploader"
+        tags:
+            - { name: kernel.event_listener, event: artis_cms_plugin.frequently_asked_question_section.pre_create, method: uploadImage }
+            - { name: kernel.event_listener, event: artis_cms_plugin.frequently_asked_question_section.pre_update, method: uploadImage }

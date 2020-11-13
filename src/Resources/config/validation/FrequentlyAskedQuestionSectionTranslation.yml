@@ -1,0 +1,12 @@
+DH\ArtisCmsPlugin\Entity\FrequentlyAskedQuestionSectionTranslation:
+    properties:
+        name:
+            - NotBlank:
+                  message: artis_cms_plugin.frequently_asked_question_section.name.not_blank
+                  groups: [artis]
+            - Length:
+                  min: 2
+                  max: 250
+                  minMessage: artis_cms_plugin.frequently_asked_question_section.name.min_length
+                  maxMessage: artis_cms_plugin.frequently_asked_question_section.name.max_length
+                  groups: [artis]

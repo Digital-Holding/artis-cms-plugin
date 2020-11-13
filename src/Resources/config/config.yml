@@ -1,0 +1,5 @@
+imports:
+    - { resource: "@BitBagSyliusCmsPlugin/Resources/config/config.yml" }
+    - { resource: "@DHArtisCmsPlugin/Resources/config/services.yml" }
+    - { resource: "@DHArtisCmsPlugin/Resources/config/resources.yml" }
+    - { resource: "@DHArtisCmsPlugin/Resources/config/grids.yml" }

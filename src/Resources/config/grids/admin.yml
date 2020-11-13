@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@DHArtisCmsPlugin/Resources/config/grids/admin/frequently_asked_question_section.yml" }
+    - { resource: "@DHArtisCmsPlugin/Resources/config/grids/admin/map_point.yml" }

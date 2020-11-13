@@ -1,0 +1,13 @@
+artis_cms_plugin:
+    ui:
+        faq_sections: FAQ Sections
+        frequently_asked_question_sections: FAQ Sections
+        faq_section_subheader: Manage FAQ Section
+        faq_section_header: FAQ Sections
+        opening_hours: Opening hours
+        city: City
+        address: Address
+        phone_number: Phone number
+        map_points: Map points
+        map_points_header: Map points
+        map_points_subheader: Manage your map points

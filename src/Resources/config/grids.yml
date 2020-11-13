@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@DHArtisCmsPlugin/Resources/config/grids/admin.yml" }

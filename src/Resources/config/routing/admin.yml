@@ -1,0 +1,11 @@
+bitbag_sylius_cms_plugin_admin:
+    resource: "@BitBagSyliusCmsPlugin/Resources/config/routing/admin.yml"
+
+artis_cms_plugin_admin_frequently_asked_question_section:
+    resource: "@DHArtisCmsPlugin/Resources/config/routing/admin/frequently_asked_question_section.yml"
+
+artis_cms_plugin_admin_map_point:
+    resource: "@DHArtisCmsPlugin/Resources/config/routing/admin/map_point.yml"
+
+artis_cms_plugin_admin_page:
+    resource: "@DHArtisCmsPlugin/Resources/config/routing/admin/page.yml"

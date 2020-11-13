@@ -1,0 +1,35 @@
+DH\ArtisCmsPlugin\Entity\MapPoint:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+              fields: [code]
+              message: 'artis_cms_plugin.map_point.code.unique'
+              groups: ['artis']
+    properties:
+        code:
+            - NotBlank:
+                  message: 'artis_cms_plugin.map_point.code.not_blank'
+                  groups: ['artis']
+            - Length:
+                  min: 2
+                  max: 250
+                  minMessage: 'artis_cms_plugin.map_point.map_point.min_length'
+                  maxMessage: 'artis_cms_plugin.map_point.map_point.max_length'
+                  groups: ['artis']
+        city:
+            -   NotBlank:
+                    message: 'artis_cms_plugin.map_point.city.not_blank'
+                    groups: ['artis']
+        phoneNumber:
+            -   NotBlank:
+                    message: 'artis_cms_plugin.map_point.phone_number.not_blank'
+                    groups: ['artis']
+        openingHours:
+            -   NotBlank:
+                    message: 'artis_cms_plugin.map_point.opening_hours.not_blank'
+                    groups: ['artis']
+        address:
+            -   NotBlank:
+                    message: 'artis_cms_plugin.map_point.address.not_blank'
+                    groups: ['artis']
+        translations:
+            - Valid: ~
