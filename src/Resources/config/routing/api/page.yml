@@ -1,0 +1,23 @@
+artis_cms_plugin_show_page:
+    path: /pages
+    methods: [GET]
+    defaults:
+        _controller: artis_cms_plugin.controller.page.show_all_action
+
+artis_cms_plugin_show_page_by_id:
+    path: /pages/{id}
+    methods: [GET]
+    defaults:
+        _controller: artis_cms_plugin.controller.page.show_by_id_action
+
+artis_cms_plugin_show_page_by_code:
+    path: /pages/by-code/{code}
+    methods: [GET]
+    defaults:
+        _controller: artis_cms_plugin.controller.page.show_by_code_action
+
+artis_cms_plugin_show_page_by_section_code:
+    path: /pages/by-section-code/{code}
+    methods: [GET]
+    defaults:
+        _controller: artis_cms_plugin.controller.page.show_by_section_code_action

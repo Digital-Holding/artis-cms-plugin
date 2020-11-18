@@ -1,0 +1,11 @@
+artis_cms_plugin_show_faq_by_section_code:
+    path: /faq/by-section-code/{code}
+    methods: [GET]
+    defaults:
+        _controller: artis_cms_plugin.controller.faq.show_faq_by_section_code_action
+
+artis_cms_plugin_show_faq_by_question_part:
+    path: /faq/search/{phrase}
+    methods: [GET]
+    defaults:
+        _controller: artis_cms_plugin.controller.faq.show_faq_list_by_question_part_action

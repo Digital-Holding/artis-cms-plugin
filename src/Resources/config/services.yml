@@ -1,6 +1,8 @@
 imports:
+    - { resource: services/action.yml }
     - { resource: services/form.yml }
     - { resource: services/event_listener.yml }
+    - { resource: services/factory.yml }
 
 services:
     artis_sylius_cms_plugin.menu.content_management:

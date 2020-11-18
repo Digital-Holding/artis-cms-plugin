@@ -1,0 +1,46 @@
+services:
+    artis_cms_plugin.factory.page.page_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Page\PageViewFactory
+        public: true
+        arguments:
+            - "@sylius.shop_api_plugin.factory.image_view_factory"
+            - '%digital_holding_artis_cms_plugin.view.page.class%'
+            - "@bitbag_sylius_cms_plugin.repository.media"
+            - "@dh.factory.media.media_view_factory"
+            - "@sylius.shop_api_plugin.factory.product_variant_view_factory"
+            - "@sylius.context.channel"
+
+    artis_cms_plugin.factory.section.section_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Section\SectionViewFactory
+        public: true
+        arguments:
+            - '%digital_holding_artis_cms_plugin.view.section.class%'
+            - "@bitbag_sylius_cms_plugin.repository.page"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+
+    artis_cms_plugin.factory.map_point.map_point_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\MapPoint\MapPointViewFactory
+        public: true
+        arguments:
+            - '%digital_holding_artis_cms_plugin.view.map_point.class%'
+            - "@sylius.shop_api_plugin.factory.product_variant_view_factory"
+
+    artis_cms_plugin.factory.faq_section.faq_section_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\FAQSection\FAQSectionViewFactory
+        arguments:
+            - '%digital_holding_artis_cms_plugin.view.frequently_asked_question_section.class%'
+            - "@sylius.shop_api_plugin.factory.image_view_factory"
+
+    artis_cms_plugin.factory.faq.faq_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\FAQ\FAQViewFactory
+        arguments:
+            - '%digital_holding_artis_cms_plugin.view.frequently_asked_question.class%'
+
+    dh.factory.media.media_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Media\MediaViewFactory
+        public: true
+        arguments:
+            - '%digital_holding_artis_cms_plugin.view.media.class%'
+            - "@liip_imagine.service.filter"
+            - "sylius_shop_api"
+            - '%kernel.project_dir%'

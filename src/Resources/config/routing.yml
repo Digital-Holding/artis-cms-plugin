@@ -8,3 +8,7 @@ bitbag_sylius_cms_plugin_shop:
 
 sylius_sitemap:
     resource: "@SitemapPlugin/Resources/config/routing.yml"
+
+artis_cms_plugin_shop_api:
+    resource: "@DHArtisCmsPlugin/Resources/config/routing/api.yml"
+    prefix: /shop-api

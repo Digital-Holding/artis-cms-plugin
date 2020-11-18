@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "feb7a7a1db5baf1a98515bf4ae555669",
+    "content-hash": "4a31080f2a2a62aef8fd5816b53e7467",
     "packages": [
         {
             "name": "api-platform/core",
@@ -7238,6 +7238,67 @@
                 "source": "https://github.com/Sylius/SyliusResourceBundle/tree/v1.6.4"
             },
             "time": "2020-08-18T07:16:31+00:00"
+        },
+        {
+            "name": "sylius/shop-api-plugin",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sylius/ShopApiPlugin.git",
+                "reference": "725f225c38213988048599f50640caf0e7cc42b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sylius/ShopApiPlugin/zipball/725f225c38213988048599f50640caf0e7cc42b9",
+                "reference": "725f225c38213988048599f50640caf0e7cc42b9",
+                "shasum": ""
+            },
+            "require": {
+                "lexik/jwt-authentication-bundle": "^2.5",
+                "php": "^7.2",
+                "sylius/sylius": "^1.4",
+                "symfony/messenger": "^4.3"
+            },
+            "require-dev": {
+                "lchrusciel/api-test-case": "^4.0",
+                "mamazu/documentation-validator": "^1.0.1",
+                "matthiasnoback/symfony-config-test": "^4.0",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+                "phpspec/phpspec": "^5.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-webmozart-assert": "^0.12",
+                "phpunit/phpunit": "^8.0",
+                "sensiolabs/security-checker": "^5.0",
+                "sylius-labs/coding-standard": "^3.0",
+                "symfony/debug-bundle": "^4.1",
+                "symfony/dotenv": "^4.1",
+                "symfony/web-profiler-bundle": "^4.1",
+                "symfony/web-server-bundle": "^4.1"
+            },
+            "suggest": {
+                "nelmio/cors-bundle": "allows you to send Cross-Origin Ajax API Request"
+            },
+            "type": "sylius-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sylius\\ShopApiPlugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Shop API for Sylius E-Commerce.",
+            "support": {
+                "issues": "https://github.com/Sylius/ShopApiPlugin/issues",
+                "source": "https://github.com/Sylius/ShopApiPlugin/tree/1.1"
+            },
+            "time": "2020-06-19T13:50:08+00:00"
         },
         {
             "name": "sylius/sylius",
