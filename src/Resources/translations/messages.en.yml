@@ -11,3 +11,5 @@ artis_cms_plugin:
         map_points: Map points
         map_points_header: Map points
         map_points_subheader: Manage your map points
+        is_hidden: Hidden section
+        short_description: Short description

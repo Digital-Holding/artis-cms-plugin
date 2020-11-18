@@ -4,7 +4,8 @@
     "license": "MIT",
     "require": {
         "php": ">=7.3",
-        "bitbag/cms-plugin": "^2.4"
+        "bitbag/cms-plugin": "^2.4",
+        "sylius/shop-api-plugin": "^1.1"
     },
     "require-dev": {
         "behat/behat": "^3.6.1",

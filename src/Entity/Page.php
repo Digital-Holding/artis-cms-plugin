@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use BitBag\SyliusCmsPlugin\Entity\Page as BasePage;
 use Sylius\Component\Core\Model\ImageInterface;
+use Sylius\Component\Core\Model\ProductVariantInterface;
 
 /**
  * @ORM\Entity
@@ -30,11 +31,21 @@ class Page extends BasePage implements PageInterface
      */
     protected $images;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Sylius\Component\Product\Model\ProductVariant")
+     * @ORM\JoinTable(name="artis_cms_page_product_variants",
+     *      joinColumns={@ORM\JoinColumn(name="map_point_id", referencedColumnName="id", onDelete="CASCADE")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="product_variant_id", referencedColumnName="id", onDelete="CASCADE")}
+     * )
+     */
+    private $productVariants;
+
     public function __construct()
     {
         parent::__construct();
 
         $this->images = new ArrayCollection();
+        $this->productVariants = new ArrayCollection();
     }
 
     public function getImages(): Collection
@@ -70,6 +81,30 @@ class Page extends BasePage implements PageInterface
         if ($this->hasImage($image)) {
             $image->setOwner(null);
             $this->images->removeElement($image);
+        }
+    }
+
+    public function getProductVariants(): Collection
+    {
+        return $this->productVariants;
+    }
+
+    public function hasProductVariant(ProductVariantInterface $productVariant): bool
+    {
+        return $this->productVariants->contains($productVariant);
+    }
+
+    public function addProductVariant(ProductVariantInterface $productVariant): void
+    {
+        if (false === $this->hasProductVariant($productVariant)) {
+            $this->productVariants->add($productVariant);
+        }
+    }
+
+    public function removeProductVariant(ProductVariantInterface $productVariant): void
+    {
+        if (true === $this->hasProductVariant($productVariant)) {
+            $this->productVariants->removeElement($productVariant);
         }
     }
 }

@@ -22,4 +22,17 @@ class FrequentlyAskedQuestionRepository extends BaseFrequentlyAskedQuestionRepos
             ->getResult()
             ;
     }
+
+    public function findByQuestionPart(string $phrase, string $locale, ?int $limit = null): array
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
+            ->andWhere('translation.question LIKE :question')
+            ->setParameter('question', '%' . $phrase . '%')
+            ->setParameter('locale', $locale)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

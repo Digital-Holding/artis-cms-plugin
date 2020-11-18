@@ -1,0 +1,11 @@
+artis_cms_plugin_page:
+    resource: "api/page.yml"
+
+artis_cms_plugin_faq:
+    resource: "api/frequently_asked_question.yml"
+
+artis_cms_plugin_faq_section:
+    resource: "api/frequently_asked_question_section.yml"
+
+artis_cms_plugin_map_point:
+    resource: "api/map_point.yml"

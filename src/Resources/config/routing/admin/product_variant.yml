@@ -1,0 +1,28 @@
+artis_sylius_cms_plugin_admin_ajax_product_variant_by_name_phrase:
+    path: ajax/product-variants/search-by-name
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product_variant:indexAction
+        _format: json
+        _sylius:
+            serialization_groups: [Autocomplete]
+            permission: true
+            repository:
+                method: findByNamePart
+                arguments:
+                    phrase: $phrase
+                    locale: expr:service('sylius.context.locale').getLocaleCode()
+                    limit: 50
+
+artis_sylius_cms_plugin_admin_ajax_product_variant_by_code:
+    path: /code
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product_variant:indexAction
+        _format: json
+        _sylius:
+            serialization_groups: [Autocomplete]
+            permission: true
+            repository:
+                method: findBy
+                arguments: [code: $code]

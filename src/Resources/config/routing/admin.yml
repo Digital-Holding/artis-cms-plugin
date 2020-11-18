@@ -9,3 +9,6 @@ artis_cms_plugin_admin_map_point:
 
 artis_cms_plugin_admin_page:
     resource: "@DHArtisCmsPlugin/Resources/config/routing/admin/page.yml"
+
+artis_cms_plugin_admin_product_variant:
+    resource: "@DHArtisCmsPlugin/Resources/config/routing/admin/product_variant.yml"

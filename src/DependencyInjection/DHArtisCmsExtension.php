@@ -17,7 +17,11 @@ final class DHArtisCmsExtension extends Extension
         $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        $loader->load('services.yaml');
+        foreach ($config['view_classes'] as $view => $class) {
+            $container->setParameter(sprintf('digital_holding_artis_cms_plugin.view.%s.class', $view), $class);
+        }
+
+        $loader->load('services.yml');
     }
 
     public function getConfiguration(array $config, ContainerBuilder $container): ConfigurationInterface

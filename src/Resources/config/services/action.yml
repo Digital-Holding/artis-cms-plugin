@@ -1,0 +1,88 @@
+services:
+    artis_cms_plugin.controller.page.show_all_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\Page\ShowPageAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@bitbag_sylius_cms_plugin.repository.page"
+            - "@artis_cms_plugin.factory.page.page_view_factory"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@parameter_bag"
+
+    artis_cms_plugin.controller.page.show_by_id_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\Page\ShowPageByIdAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@bitbag_sylius_cms_plugin.repository.page"
+            - "@artis_cms_plugin.factory.page.page_view_factory"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@parameter_bag"
+
+    artis_cms_plugin.controller.page.show_by_code_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\Page\ShowPageByCode
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@bitbag_sylius_cms_plugin.repository.page"
+            - "@artis_cms_plugin.factory.page.page_view_factory"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@parameter_bag"
+
+    artis_cms_plugin.controller.page.show_by_section_code_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\Page\ShowPageBySectionCode
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@bitbag_sylius_cms_plugin.repository.page"
+            - "@artis_cms_plugin.factory.page.page_view_factory"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@parameter_bag"
+
+    artis_cms_plugin.controller.section.show_list_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\Section\ShowSectionListAction
+        public: true
+        arguments:
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@fos_rest.view_handler"
+            - "@bitbag_sylius_cms_plugin.repository.section"
+            - "@artis_cms_plugin.factory.section.section_view_factory"
+
+    artis_cms_plugin.controller.map_point.show_list_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\MapPoint\ShowMapPointListAction
+        public: true
+        arguments:
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@fos_rest.view_handler"
+            - "@artis_cms_plugin.repository.map_point"
+            - "@artis_cms_plugin.factory.map_point.map_point_view_factory"
+            - "@sylius.context.channel"
+            - "@parameter_bag"
+
+    artis_cms_plugin.controller.faq_section.show_faq_section_list_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\FAQSection\ShowFAQSectionListAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@artis_cms_plugin.repository.frequently_asked_question_section"
+            - "@artis_cms_plugin.factory.faq_section.faq_section_view_factory"
+
+    artis_cms_plugin.controller.faq.show_faq_by_section_code_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\FAQ\ShowFAQBySectionCode
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@bitbag_sylius_cms_plugin.repository.frequently_asked_question"
+            - "@artis_cms_plugin.factory.faq.faq_view_factory"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@parameter_bag"
+
+    artis_cms_plugin.controller.faq.show_faq_list_by_question_part_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\FAQ\ShowFAQListByQuestionPart
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@bitbag_sylius_cms_plugin.repository.frequently_asked_question"
+            - "@artis_cms_plugin.factory.faq.faq_view_factory"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@parameter_bag"
