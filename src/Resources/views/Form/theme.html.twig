@@ -15,3 +15,7 @@
 {% block artis_cms_plugin_frequently_asked_question_section_autocomplete_choice_row %}
     {{ form_row(form, {'remote_url': path('artis_cms_plugin_admin_frequently_asked_question_section_by_name_phrase'), 'load_edit_url': path('artis_cms_plugin_admin_frequently_asked_question_section_by_code')}) }}
 {% endblock %}
+
+{% block artis_cms_plugin_product_variant_autocomplete_choice_row %}
+    {{ form_row(form, {'remote_url': path('artis_sylius_cms_plugin_admin_ajax_product_variant_by_name_phrase'), 'load_edit_url': path('artis_sylius_cms_plugin_admin_ajax_product_variant_by_code')}) }}
+{% endblock %}

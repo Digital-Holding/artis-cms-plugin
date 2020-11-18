@@ -60,3 +60,13 @@ services:
         class: DH\ArtisCmsPlugin\Form\Extension\MediaTypeExtension
         tags:
             - { name: form.type_extension, extended_type: BitBag\SyliusCmsPlugin\Form\Type\MediaType }
+
+    artis_cms_plugin.form.extension.type.section:
+        class: DH\ArtisCmsPlugin\Form\Extension\SectionTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: BitBag\SyliusCmsPlugin\Form\Type\SectionType }
+
+    artis_cms_plugin.form.extension.type.page_translation:
+        class: DH\ArtisCmsPlugin\Form\Extension\PageTranslationTypeExtension
+        tags:
+            - { name: form.type_extension , extended_type: BitBag\SyliusCmsPlugin\Form\Type\Translation\PageTranslationType }

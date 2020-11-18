@@ -4,6 +4,9 @@ sylius_resource:
             classes:
                 model: DH\ArtisCmsPlugin\Entity\Page
                 repository: DH\ArtisCmsPlugin\Repository\PageRepository
+            translation:
+                classes:
+                    model: DH\ArtisCmsPlugin\Entity\PageTranslation
 
         artis_cms_plugin.page_images:
             driver: doctrine/orm

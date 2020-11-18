@@ -11,3 +11,5 @@ artis_cms_plugin:
         map_points: Punkty mapy kontaktowej
         map_points_header: Punkty mapy kontaktowej
         map_points_subheader: Zarządzaj punktami mapy kontaktowej
+        is_hidden: Ukryta sekcja
+        short_description: Krótki opis
