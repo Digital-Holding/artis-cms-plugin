@@ -84,7 +84,7 @@ final class PageViewFactory implements PageViewFactoryInterface
         }
 
         if (null !== $pageTranslation->getImage()) {
-            $pageView->image[] = $this->imageViewFactory->create($pageTranslation->getImage());
+            $pageView->image[] = $this->mediaViewFactory->create($pageTranslation->getImage());
         }
 
         $images = $page->getImages();
