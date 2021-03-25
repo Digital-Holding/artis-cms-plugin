@@ -21,7 +21,7 @@ final class PageTypeExtension extends AbstractTypeExtension
                 'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-                'label' => 'bitbag_sylius_cms_plugin.ui.images',
+                'label' => 'sylius.ui.images',
                 'block_name' => 'entry',
             ])
             ->add('productVariants', ProductVariantAutocompleteChoiceType::class, [

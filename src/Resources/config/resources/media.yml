@@ -3,3 +3,4 @@ sylius_resource:
         bitbag_sylius_cms_plugin.media:
             classes:
                 model: DH\ArtisCmsPlugin\Entity\Media
+                repository: DH\ArtisCmsPlugin\Repository\MediaRepository
