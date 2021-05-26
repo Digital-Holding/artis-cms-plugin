@@ -2,7 +2,7 @@ artis_cms_plugin_admin_frequently_asked_question_section:
     resource: |
         alias: artis_cms_plugin.frequently_asked_question_section
         section: admin
-        templates: SyliusAdminBundle:Crud
+        templates: "@SyliusAdmin\\Crud"
         redirect: update
         grid: artis_cms_plugin_admin_frequently_asked_question_section
         except: ['show']

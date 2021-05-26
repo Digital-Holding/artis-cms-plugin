@@ -2,7 +2,7 @@ artis_sylius_cms_plugin_admin_map_point:
     resource: |
         alias: artis_cms_plugin.map_point
         section: admin
-        templates: SyliusAdminBundle:Crud
+        templates: "@SyliusAdmin\\Crud"
         redirect: update
         grid: artis_cms_plugin_admin_map_point
         except: ['show']
