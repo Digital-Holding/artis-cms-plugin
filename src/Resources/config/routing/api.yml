@@ -9,3 +9,6 @@ artis_cms_plugin_faq_section:
 
 artis_cms_plugin_map_point:
     resource: "api/map_point.yml"
+
+artis_cms_plugin_section:
+    resource: "api/section.yml"
