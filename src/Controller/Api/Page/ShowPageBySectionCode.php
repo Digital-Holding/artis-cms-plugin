@@ -4,71 +4,54 @@ declare(strict_types=1);
 
 namespace DH\ArtisCmsPlugin\Controller\Api\Page;
 
-use BitBag\SyliusCmsPlugin\Repository\PageRepositoryInterface;
-use DH\ArtisCmsPlugin\Entity\PageInterface;
-use DH\ArtisCmsPlugin\Factory\ViewFactory\Page\PageViewFactoryInterface;
-use DH\ArtisCmsPlugin\View\Page\PageView;
+use DH\ArtisCmsPlugin\ViewRepository\PageCatalogViewRepositoryInterface;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
-use Sylius\ShopApiPlugin\Http\RequestBasedLocaleProviderInterface;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Sylius\Component\Channel\Context\ChannelContextInterface;
+use Sylius\Component\Channel\Context\ChannelNotFoundException;
+use Sylius\ShopApiPlugin\Model\PaginatorDetails;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Webmozart\Assert\Assert;
 
 final class ShowPageBySectionCode
 {
     /** @var ViewHandlerInterface */
     private $viewHandler;
 
-    /** @var PageRepositoryInterface */
-    private $pageRepository;
+    /** @var PageCatalogViewRepositoryInterface */
+    private $pageCatalogViewRepository;
 
-    /** @var PageViewFactoryInterface */
-    private $pageViewFactory;
-
-    /** @var RequestBasedLocaleProviderInterface */
-    private $requestBasedLocaleProvider;
-
-    /** @var ParameterBagInterface $parameterBag */
-    private $parameterBag;
+    /** @var ChannelContextInterface */
+    private $channelContext;
 
     public function __construct(
         ViewHandlerInterface $viewHandler,
-        PageRepositoryInterface $pageRepository,
-        PageViewFactoryInterface $pageViewFactory,
-        RequestBasedLocaleProviderInterface $requestBasedLocaleProvider,
-        ParameterBagInterface $parameterBag
+        PageCatalogViewRepositoryInterface $pageCatalogViewRepository,
+        ChannelContextInterface $channelContext
     ) {
         $this->viewHandler = $viewHandler;
-        $this->pageRepository = $pageRepository;
-        $this->pageViewFactory = $pageViewFactory;
-        $this->requestBasedLocaleProvider = $requestBasedLocaleProvider;
-        $this->parameterBag = $parameterBag;
+        $this->pageCatalogViewRepository = $pageCatalogViewRepository;
+        $this->channelContext = $channelContext;
     }
 
     public function __invoke(Request $request): Response
     {
-        $localeCode = $this->requestBasedLocaleProvider->getLocaleCode($request);
+        try {
+            $channel = $this->channelContext->getChannel();
+            Assert::notNull($channel->getCode());
 
-        $code = $request->attributes->get('code');
-
-        /** @var PageInterface $pages */
-        $pages = $this->pageRepository->findBySectionCode(
-            $code,
-            $localeCode
-        );
-
-        $pageView = [];
-        /** @var PageInterface $page */
-        foreach ($pages as $page) {
-            $pageView [] = $this->buildPageView($page, $localeCode);
+            return $this->viewHandler->handle(View::create($this->pageCatalogViewRepository->findEnabledBySectionCode(
+                $request->attributes->get('code'),
+                $channel->getCode(),
+                new PaginatorDetails($request->attributes->get('_route'), $request->query->all()),
+                $request->query->get('locale')
+            ), Response::HTTP_OK));
+        } catch (ChannelNotFoundException $exception) {
+            throw new NotFoundHttpException('Channel has not been found.');
+        } catch (\InvalidArgumentException $exception) {
+            throw new NotFoundHttpException($exception->getMessage());
         }
-
-        return $this->viewHandler->handle(View::create($pageView,  Response::HTTP_OK));
-    }
-
-    private function buildPageView(PageInterface $page, string $localeCode): PageView
-    {
-        return $this->pageViewFactory->create($page, $localeCode);
     }
 }

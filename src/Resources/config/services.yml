@@ -9,3 +9,12 @@ services:
         class: DH\ArtisCmsPlugin\Menu\ContentManagementMenuListener
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.main, method: buildMenu }
+
+    artis_sylius_cms_plugin.view_repository.page.page_catalog_view_repository:
+        class: DH\ArtisCmsPlugin\ViewRepository\PageCatalogViewRepository
+        arguments:
+            - "@sylius.repository.channel"
+            - "@bitbag_sylius_cms_plugin.repository.page"
+            - "@artis_cms_plugin.factory.page.page_view_factory"
+            - "@sylius.shop_api_plugin.provider.supported_locale_provider"
+            - "@sylius.shop_api_plugin.factory.page_view_factory"

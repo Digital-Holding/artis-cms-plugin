@@ -19,7 +19,7 @@ class PageRepository extends BasePageRepository implements PageRepositoryInterfa
             ;
     }
 
-    private function createTranslationBasedQueryBuilder(?string $locale = null): QueryBuilder
+    public function createTranslationBasedQueryBuilder(?string $locale = null): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('o')
             ->addSelect('translation')
