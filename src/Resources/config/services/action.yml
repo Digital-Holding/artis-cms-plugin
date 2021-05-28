@@ -4,10 +4,8 @@ services:
         public: true
         arguments:
             - "@fos_rest.view_handler"
-            - "@bitbag_sylius_cms_plugin.repository.page"
-            - "@artis_cms_plugin.factory.page.page_view_factory"
-            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
-            - "@parameter_bag"
+            - "@artis_sylius_cms_plugin.view_repository.page.page_catalog_view_repository"
+            - "@sylius.context.channel"
 
     artis_cms_plugin.controller.page.show_by_id_action:
         class: DH\ArtisCmsPlugin\Controller\Api\Page\ShowPageByIdAction
@@ -34,10 +32,8 @@ services:
         public: true
         arguments:
             - "@fos_rest.view_handler"
-            - "@bitbag_sylius_cms_plugin.repository.page"
-            - "@artis_cms_plugin.factory.page.page_view_factory"
-            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
-            - "@parameter_bag"
+            - "@artis_sylius_cms_plugin.view_repository.page.page_catalog_view_repository"
+            - "@sylius.context.channel"
 
     artis_cms_plugin.controller.section.show_list_action:
         class: DH\ArtisCmsPlugin\Controller\Api\Section\ShowSectionListAction
