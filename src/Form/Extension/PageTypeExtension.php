@@ -10,6 +10,7 @@ use DH\ArtisCmsPlugin\Form\Type\ProductVariantAutocompleteChoiceType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Valid;
 
 final class PageTypeExtension extends AbstractTypeExtension
 {
@@ -23,6 +24,8 @@ final class PageTypeExtension extends AbstractTypeExtension
                 'by_reference' => false,
                 'label' => 'sylius.ui.images',
                 'block_name' => 'entry',
+                'validation_groups' => ['artis'],
+                'constraints' => [new Valid()],
             ])
             ->add('productVariants', ProductVariantAutocompleteChoiceType::class, [
                 'multiple' => true,

@@ -1,0 +1,4 @@
+DH\ArtisCmsPlugin\Entity\Page:
+    properties:
+        images:
+            - Valid: ~

@@ -1,0 +1,6 @@
+DH\ArtisCmsPlugin\Entity\PageImages:
+    properties:
+        file:
+            - Image:
+                  uploadIniSizeErrorMessage: artis_cms_plugin.product_image.file.upload_ini_size
+                  groups: ['artis']
