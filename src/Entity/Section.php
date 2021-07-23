@@ -16,7 +16,12 @@ class Section extends BaseSection implements SectionInterface
     /**
      * @ORM\Column(type="boolean", nullable=false)
      */
-    public $hidden = false;
+    private $hidden = false;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default" : 0})
+     */
+    private $taxonable = false;
 
     public function isHidden(): bool
     {
@@ -26,5 +31,15 @@ class Section extends BaseSection implements SectionInterface
     public function setHidden(bool $isHidden): void
     {
         $this->hidden = $isHidden;
+    }
+
+    public function isTaxonable(): bool
+    {
+        return $this->taxonable;
+    }
+
+    public function setTaxonable(bool $taxonable): void
+    {
+        $this->taxonable = $taxonable;
     }
 }

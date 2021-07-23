@@ -13,3 +13,4 @@ artis_cms_plugin:
         map_points_subheader: Manage your map points
         is_hidden: Hidden section
         short_description: Short description
+        is_taxonable: Use in taxonomy

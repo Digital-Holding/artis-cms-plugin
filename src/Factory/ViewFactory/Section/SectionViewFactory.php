@@ -40,6 +40,7 @@ class SectionViewFactory implements SectionViewFactoryInterface
         $sectionView->code = $section->getCode();
         $sectionView->name = $section->getName();
         $sectionView->count = $this->getSectionItemsCount($section->getCode(), $locale);
+        $sectionView->taxonable = $section->isTaxonable();
 
         return $sectionView;
     }
