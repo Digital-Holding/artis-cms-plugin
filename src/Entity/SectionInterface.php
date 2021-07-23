@@ -11,4 +11,8 @@ interface SectionInterface extends BaseSectionInterface
     public function isHidden(): bool;
 
     public function setHidden(bool $isHidden): void;
+
+    public function isTaxonable(): bool;
+
+    public function setTaxonable(bool $taxonable): void;
 }

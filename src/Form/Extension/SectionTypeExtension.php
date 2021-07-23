@@ -17,6 +17,9 @@ final class SectionTypeExtension extends AbstractTypeExtension
             ->add('hidden', CheckboxType::class, [
                 'label' => 'artis_cms_plugin.ui.is_hidden'
             ])
+            ->add('taxonable', CheckboxType::class, [
+                'label' => 'artis_cms_plugin.ui.is_taxonable'
+            ])
         ;
     }
 

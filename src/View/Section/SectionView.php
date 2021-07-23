@@ -17,4 +17,7 @@ class SectionView
 
     /** @var int */
     public $count;
+
+    /** @var bool */
+    public $taxonable;
 }
