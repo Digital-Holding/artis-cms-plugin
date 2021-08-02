@@ -82,3 +82,12 @@ services:
             - "@artis_cms_plugin.factory.faq.faq_view_factory"
             - "@sylius.shop_api_plugin.http.request_based_locale_provider"
             - "@parameter_bag"
+
+    artis_cms_plugin.controller.section.show_taxonable_list_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\Section\ShowTaxonableSectionListAction
+        public: true
+        arguments:
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@fos_rest.view_handler"
+            - "@bitbag_sylius_cms_plugin.repository.section"
+            - "@artis_cms_plugin.factory.section.section_view_factory"

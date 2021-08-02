@@ -6,3 +6,10 @@ artis_cms_plugin_show_section_list:
         hidden: null
     requirements:
         hidden: '^hidden$|^NULL$'
+
+artis_cms_plugin_show_taxonable_section_list:
+    path: /sections-taxonable
+    methods: [GET]
+    defaults:
+        _controller: artis_cms_plugin.controller.section.show_taxonable_list_action
+

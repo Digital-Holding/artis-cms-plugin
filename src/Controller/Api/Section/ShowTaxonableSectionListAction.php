@@ -14,7 +14,7 @@ use Sylius\ShopApiPlugin\Http\RequestBasedLocaleProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class ShowSectionListAction
+final class ShowTaxonableSectionListAction
 {
     /** @var RequestBasedLocaleProviderInterface */
     private $requestBasedLocaleProvider;
@@ -45,24 +45,13 @@ final class ShowSectionListAction
     {
         $localeCode = $this->requestBasedLocaleProvider->getLocaleCode($request);
 
-        $hidden = $request->attributes->has('hidden') ? $request->attributes->get('hidden') : null;
-
         /** @var SectionInterface $sections */
-        $sections = $this->sectionRepository->findByTaxonable(false);
+        $sections = $this->sectionRepository->findByTaxonable(true);
 
         $sectionViews = [];
 
         /** @var SectionInterface $section */
         foreach ($sections as $section) {
-            if (null !== $hidden) {
-                if (!$section->isHidden()) {
-                    continue;
-                }
-            } else {
-                if ($section->isHidden()) {
-                    continue;
-                }
-            }
             $sectionViews [] = $this->buildSectionList($section, $localeCode);
         }
 
