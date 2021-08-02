@@ -3,3 +3,4 @@ sylius_resource:
         bitbag_sylius_cms_plugin.section:
             classes:
                 model: DH\ArtisCmsPlugin\Entity\Section
+                repository: DH\ArtisCmsPlugin\Repository\SectionRepository
