@@ -14,7 +14,7 @@ class SectionRepository extends BaseSectionRepository implements SectionReposito
             ->andWhere('o.taxonable = :taxonable')
             ->setParameter('taxonable', $taxonable)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
             ;
     }
 }
