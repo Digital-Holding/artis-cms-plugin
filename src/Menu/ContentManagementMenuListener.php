@@ -16,6 +16,8 @@ final class ContentManagementMenuListener
             ->getChild('bitbag_cms')
         ;
 
+        $cmsRootMenuItem->removeChild('blocks');
+
         $cmsRootMenuItem
             ->addChild('faq_sections', [
                 'route' => 'artis_cms_plugin_admin_frequently_asked_question_section_index',
