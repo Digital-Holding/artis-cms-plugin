@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class ShowFAQBySectionCode
 {
-
     /** @var ViewHandlerInterface */
     private $viewHandler;
 
