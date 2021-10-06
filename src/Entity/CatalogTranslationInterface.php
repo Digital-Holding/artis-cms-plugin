@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DH\ArtisCmsPlugin\Entity;
 
-interface CatalogTranslationInterface
+use Sylius\Component\Resource\Model\ResourceInterface;
+
+interface CatalogTranslationInterface extends ResourceInterface
 {
     public function getTitle(): ?string;
 
@@ -17,4 +19,8 @@ interface CatalogTranslationInterface
     public function getSubtitle(): ?string;
 
     public function setSubtitle(?string $subtitle): self;
+
+    public function getLocale(): ?string;
+
+    public function setLocale(?string $locale): self;
 }

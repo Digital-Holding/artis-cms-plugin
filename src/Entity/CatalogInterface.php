@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DH\ArtisCmsPlugin\Entity;
 
-interface CatalogInterface
+use Sylius\Component\Resource\Model\ResourceInterface;
+
+interface CatalogInterface extends ResourceInterface
 {
     public const MENU_MAIN = 'main_menu';
 

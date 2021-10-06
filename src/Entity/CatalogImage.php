@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace DH\ArtisCmsPlugin\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="artis_cms_plugin_catalog_images")
+ */
 class CatalogImage implements CatalogImageInterface
 {
     /** @ORM\Column(name="owner_id", type="integer", nullable=true) */

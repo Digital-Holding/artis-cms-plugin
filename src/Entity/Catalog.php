@@ -7,6 +7,10 @@ namespace DH\ArtisCmsPlugin\Entity;
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="artis_cms_plugin_catalog")
+ */
 class Catalog implements CatalogInterface
 {
     /**
@@ -55,5 +59,10 @@ class Catalog implements CatalogInterface
     protected function createTranslation(): CatalogTranslation
     {
         return new CatalogTranslation();
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 }
