@@ -17,3 +17,4 @@ artis_cms_plugin:
         catalog_sections: Catalog
         catalog_subheader: Manage Catalog
         catalog_header: Catalog
+        catalogs: Catalog list

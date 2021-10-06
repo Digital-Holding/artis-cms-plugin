@@ -44,3 +44,14 @@ services:
             - "@liip_imagine.service.filter"
             - "sylius_shop_api"
             - '%kernel.project_dir%'
+
+    artis_cms_plugin.factory.category.category_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Category\CategoryViewFactory
+        public: true
+        arguments:
+            - "@sylius.shop_api_plugin.factory.image_view_factory"
+            - '%digital_holding_artis_cms_plugin.view.page.class%'
+            - "@bitbag_sylius_cms_plugin.repository.media"
+            - "@dh.factory.media.media_view_factory"
+            - "@sylius.shop_api_plugin.factory.product_variant_view_factory"
+            - "@sylius.context.channel"

@@ -1,0 +1,5 @@
+artis_cms_plugin_show_catalog:
+    path: /catalog
+    methods: [GET]
+    defaults:
+        _controller: artis_cms_plugin.controller.catalog.show_action

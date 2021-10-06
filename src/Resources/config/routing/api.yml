@@ -12,3 +12,6 @@ artis_cms_plugin_map_point:
 
 artis_cms_plugin_section:
     resource: "api/section.yml"
+
+artis_cms_plugin_catalog:
+    resource: "api/catalog.yml"

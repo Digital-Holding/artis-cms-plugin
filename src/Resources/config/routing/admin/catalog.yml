@@ -1,0 +1,18 @@
+artis_sylius_cms_plugin_admin_catalog:
+    resource: |
+        alias: artis_cms_plugin.catalog
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        redirect: update
+        grid: artis_cms_plugin_admin_catalog
+        except: ['show']
+        permission: true
+        vars:
+            all:
+                header: artis_cms_plugin.ui.catalog_header
+                subheader: artis_cms_plugin.ui.catalog_subheader
+                templates:
+                    form: "@DHArtisCmsPlugin/MapPoint/Crud/_form.html.twig"
+            index:
+                icon: sticky note
+    type: sylius.resource
