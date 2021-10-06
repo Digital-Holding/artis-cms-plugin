@@ -14,3 +14,6 @@ artis_cms_plugin:
         is_hidden: Hidden section
         short_description: Short description
         is_taxonable: Use in taxonomy
+        catalog_sections: Catalog
+        catalog_subheader: Manage Catalog
+        catalog_header: Catalog
