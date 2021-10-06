@@ -5,3 +5,4 @@ imports:
     - { resource: resources/map_point.yml }
     - { resource: resources/page.yml }
     - { resource: resources/section.yml }
+    - { resource: resources/catalog.yml }

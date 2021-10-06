@@ -1,0 +1,14 @@
+sylius_resource:
+    resources:
+        artis_cms_plugin.catalog:
+            driver: doctrine/orm
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\Catalog
+                interface: DH\ArtisCmsPlugin\Entity\CatalogInterface
+                form: DH\ArtisCmsPlugin\Form\Type\CatalogType
+                repository: DH\ArtisCmsPlugin\Repository\CatalogRepository
+            translation:
+                classes:
+                    model: DH\ArtisCmsPlugin\Entity\CatalogTranslation
+                    form: DH\ArtisCmsPlugin\Form\Type\Translation\CatalogTranslationType
+                    interface: DH\ArtisCmsPlugin\Entity\CatalogTranslationInterface
