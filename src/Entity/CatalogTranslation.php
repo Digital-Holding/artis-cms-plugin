@@ -23,20 +23,12 @@ class CatalogTranslation extends AbstractTranslation implements CatalogTranslati
     /** @ORM\Column(name="title", type="text", nullable=true) */
     protected ?string $title;
 
-    /** @ORM\Column(name="year", type="text", nullable=true) */
-    protected ?string $year;
-
     /** @ORM\Column(name="subtitle", type="text", nullable=true) */
     protected ?string $subtitle;
 
     public function getTitle(): ?string
     {
         return $this->title;
-    }
-
-    public function getYear(): ?string
-    {
-        return $this->year;
     }
 
     public function getSubtitle(): ?string
@@ -47,13 +39,6 @@ class CatalogTranslation extends AbstractTranslation implements CatalogTranslati
     public function setTitle(?string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function setYear(?string $year): self
-    {
-        $this->year = $year;
 
         return $this;
     }

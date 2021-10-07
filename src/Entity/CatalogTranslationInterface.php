@@ -12,10 +12,6 @@ interface CatalogTranslationInterface extends ResourceInterface
 
     public function setTitle(?string $title): self;
 
-    public function getYear(): ?string;
-
-    public function setYear(?string $year): self;
-
     public function getSubtitle(): ?string;
 
     public function setSubtitle(?string $subtitle): self;

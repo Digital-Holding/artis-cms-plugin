@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace DH\ArtisCmsPlugin\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
@@ -34,11 +33,14 @@ class Catalog implements CatalogInterface
     /** @ORM\Column(name="menu_code", type="text", nullable=true) */
     protected ?string $menuCode;
 
+    /** @ORM\Column(name="year", type="datetime", nullable=true) */
+    protected ?DateTimeInterface $year;
+
     /**
-     * @ORM\OneToMany(
+     * @ORM\OneToOne(
      *     targetEntity="DH\ArtisCmsPlugin\Entity\CatalogImage",
      *     mappedBy="owner",
-     *     cascade={"persist", "remove"},
+     *     cascade={"persist"},
      *     orphanRemoval=true
      * )
      * @ORM\JoinColumn(
@@ -46,54 +48,24 @@ class Catalog implements CatalogInterface
      *     nullable=false
      * )
      */
-    protected $images;
+    protected $image;
 
-//    private bool $isRoot;
+    /**
+     * @ORM\OneToOne(
+     *     targetEntity="DH\ArtisCmsPlugin\Entity\CatalogAttachment",
+     *     mappedBy="owner",
+     *     cascade={"persist"},
+     *     orphanRemoval=true
+     * )
+     * @ORM\JoinColumn(
+     *     onDelete="CASCADE",
+     *     nullable=false
+     * )
+     */
+    protected $attachment;
 
-    public function __construct(
-//        bool $isRoot
-    ) {
+    public function __construct( ) {
         $this->initializeTranslationsCollection();
-        $this->images = new ArrayCollection();
-//        if ($this->isRoot()) {
-//            $this->menuCode = self::MENU_MAIN;
-//        }
-    }
-
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function getImagesByType(string $type): Collection
-    {
-        return $this->images->filter(function (ImageInterface $image) use ($type): bool {
-            return $type === $image->getType();
-        });
-    }
-
-    public function hasImages(): bool
-    {
-        return !$this->images->isEmpty();
-    }
-
-    public function addImage(ImageInterface $image): void
-    {
-        $image->setOwner($this);
-        $this->images->add($image);
-    }
-
-    public function removeImage(ImageInterface $image): void
-    {
-        if ($this->hasImage($image)) {
-            $image->setOwner(null);
-            $this->images->removeElement($image);
-        }
-    }
-
-    public function hasImage(ImageInterface $image): bool
-    {
-        return $this->images->contains($image);
     }
 
     public function getMenuCode(): ?string
@@ -145,13 +117,43 @@ class Catalog implements CatalogInterface
         return $this->getTranslation()->getSubtitle();
     }
 
-    public function getYear(): ?string
+    public function getYear(): ?DateTimeInterface
     {
-        return $this->getTranslation()->getYear();
+        return $this->year;
     }
 
     protected function createTranslation(): CatalogTranslationInterface
     {
         return new CatalogTranslation();
+    }
+
+    public function setYear(?DateTimeInterface $year): self
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    public function getImage(): ?ImageInterface
+    {
+        return $this->image;
+    }
+
+    public function setImage(?ImageInterface $image): void
+    {
+        $image->setOwner($this);
+        $this->image = $image;
+    }
+
+    public function getAttachment(): ?ImageInterface
+    {
+        return $this->attachment;
+    }
+
+    public function setAttachment(?ImageInterface $attachment): void
+    {
+        $attachment->setOwner($this);
+
+        $this->attachment = $attachment;
     }
 }
