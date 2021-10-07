@@ -25,9 +25,10 @@ sylius_grid:
                     label: sylius.ui.subtitle
                     sortable: ~
                 year:
-                    type: string
+                    type: twig
                     label: sylius.ui.year
-                    sortable: ~
+                    options:
+                        template: "@DHArtisCmsPlugin/Catalog/Grid/Field/year.html.twig"
             filters:
                 search:
                     type: string
