@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DH\ArtisCmsPlugin\Form\Type\Translation;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
