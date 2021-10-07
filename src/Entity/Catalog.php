@@ -19,7 +19,9 @@ use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 class Catalog implements CatalogInterface
 {
     use TranslatableTrait {
-        __construct as protected initializeTranslationsCollection;
+        __construct as private initializeTranslationsCollection;
+
+        getTranslation as private doGetTranslation;
     }
 
     /**
@@ -51,6 +53,7 @@ class Catalog implements CatalogInterface
     public function __construct(
 //        bool $isRoot
     ) {
+        $this->initializeTranslationsCollection();
         $this->images = new ArrayCollection();
 //        if ($this->isRoot()) {
 //            $this->menuCode = self::MENU_MAIN;
@@ -126,28 +129,28 @@ class Catalog implements CatalogInterface
 
     public function getTitle(): ?string
     {
-        return $this->getCatalogTranslation()->getTitle();
+        return $this->getTranslation()->getTitle();
     }
 
-    /**
-     * @return CatalogTranslationInterface|TranslationInterface|null
-     */
-    protected function getCatalogTranslation(): CatalogTranslationInterface
+    public function getTranslation(?string $locale = null): TranslationInterface
     {
-        return $this->getTranslation();
+        /** @var TranslationInterface $translation */
+        $translation = $this->doGetTranslation($locale);
+
+        return $translation;
     }
 
     public function getSubtitle(): ?string
     {
-        return $this->getCatalogTranslation()->getSubtitle();
+        return $this->getTranslation()->getSubtitle();
     }
 
     public function getYear(): ?string
     {
-        return $this->getCatalogTranslation()->getYear();
+        return $this->getTranslation()->getYear();
     }
 
-    protected function createTranslation(): CatalogTranslation
+    protected function createTranslation(): CatalogTranslationInterface
     {
         return new CatalogTranslation();
     }

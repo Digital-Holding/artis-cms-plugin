@@ -18,13 +18,6 @@ final class CatalogType extends AbstractResourceType
             ->add('menu_code', TextType::class, [
                 'label' => 'sylius.ui.code',
                 'disabled' => null,
-                //!== $builder->getData()->getMenuCode(),
-            ])
-            ->add('title', TextType::class, [
-                'label' => 'sylius.ui.title',
-            ])
-            ->add('subtitle', TextType::class, [
-                'label' => 'sylius.ui.subtitle',
             ])
             ->add('translations', ResourceTranslationsType::class, [
                 'label' => false,

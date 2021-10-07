@@ -19,8 +19,4 @@ interface CatalogTranslationInterface extends ResourceInterface
     public function getSubtitle(): ?string;
 
     public function setSubtitle(?string $subtitle): self;
-
-    public function getLocale(): ?string;
-
-    public function setLocale(?string $locale): self;
 }

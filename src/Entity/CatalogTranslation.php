@@ -3,13 +3,15 @@
 declare(strict_types=1);
 
 namespace DH\ArtisCmsPlugin\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Resource\Model\AbstractTranslation;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="artis_cms_plugin_catalog_translation")
  */
-class CatalogTranslation implements CatalogTranslationInterface
+class CatalogTranslation extends AbstractTranslation implements CatalogTranslationInterface
 {
     /**
      * @ORM\Id
@@ -26,9 +28,6 @@ class CatalogTranslation implements CatalogTranslationInterface
 
     /** @ORM\Column(name="subtitle", type="text", nullable=true) */
     protected ?string $subtitle;
-
-    /** @ORM\Column(name="locale", type="text", nullable=true) */
-    protected ?string $locale;
 
     public function getTitle(): ?string
     {
@@ -64,18 +63,6 @@ class CatalogTranslation implements CatalogTranslationInterface
         $this->subtitle = $subtitle;
 
         return $this;
-    }
-
-    public function setLocale(?string $locale): self
-    {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
-    public function getLocale(): ?string
-    {
-        return $this->locale;
     }
 
     public function getId(): int
