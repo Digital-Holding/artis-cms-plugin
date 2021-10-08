@@ -107,10 +107,7 @@ class Catalog implements CatalogInterface
 
     public function getTranslation(?string $locale = null): TranslationInterface
     {
-        /** @var TranslationInterface $translation */
-        $translation = $this->doGetTranslation($locale);
-
-        return $translation;
+        return $this->doGetTranslation($locale);
     }
 
     public function getSubtitle(): ?string
