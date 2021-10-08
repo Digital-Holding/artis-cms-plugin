@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace DH\ArtisCmsPlugin\Entity;
 
 use DateTimeInterface;
-use DH\ArtisCmsPlugin\Model\AttachmentInterface;
 use Sylius\Component\Core\Model\ImageAwareInterface;
 use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
@@ -41,7 +40,7 @@ interface CatalogInterface extends
 
     public function getTranslation(?string $locale = null): TranslationInterface;
 
-    public function getAttachment(): ?AttachmentInterface;
+    public function getAttachment(): ?CatalogAttachmentInterface;
 
-    public function setAttachment(?AttachmentInterface $attachment): void;
+    public function setAttachment(?CatalogAttachmentInterface $attachment): void;
 }

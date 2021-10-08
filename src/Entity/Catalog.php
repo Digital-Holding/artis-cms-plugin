@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace DH\ArtisCmsPlugin\Entity;
 
 use DateTimeInterface;
-use DH\ArtisCmsPlugin\Model\AttachmentInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
@@ -143,12 +142,12 @@ class Catalog implements CatalogInterface
         $this->image = $image;
     }
 
-    public function getAttachment(): ?AttachmentInterface
+    public function getAttachment(): ?CatalogAttachmentInterface
     {
         return $this->attachment;
     }
 
-    public function setAttachment(?AttachmentInterface $attachment): void
+    public function setAttachment(?CatalogAttachmentInterface $attachment): void
     {
         $attachment->setOwner($this);
 
