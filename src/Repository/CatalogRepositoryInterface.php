@@ -8,10 +8,11 @@ use DH\ArtisCmsPlugin\Entity\CatalogInterface;
 use Doctrine\ORM\QueryBuilder;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
-interface CatalogRepositoryInterface extends
-    RepositoryInterface
+interface CatalogRepositoryInterface extends RepositoryInterface
 {
     public function createListQueryBuilder(string $localeCode): QueryBuilder;
 
-    public function findOneEnabledByCode(string $menuCode, ?string $localeCode): ?CatalogInterface;
+    public function getCatalogByCode(string $menuCode, string $year, ?string $localeCode): QueryBuilder;
+
+    public function findOneEnabledByCode(string $menuCode, string $year, ?string $localeCode): ?CatalogInterface;
 }
