@@ -1,0 +1,6 @@
+DH\ArtisCmsPlugin\Entity\Catalog:
+    properties:
+        images:
+            - Valid: ~
+        attachment:
+            -   Valid: ~
