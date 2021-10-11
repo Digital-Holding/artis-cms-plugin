@@ -43,4 +43,8 @@ interface CatalogInterface extends
     public function getAttachment(): ?CatalogAttachmentInterface;
 
     public function setAttachment(?CatalogAttachmentInterface $attachment): void;
+
+    public function getUrl(): ?string;
+
+    public function setUrl(?string $url): self;
 }

@@ -27,6 +27,7 @@ final class Configuration implements ConfigurationInterface
                         ->scalarNode('media')->defaultValue(View\Media\MediaView::class)->end()
                         ->scalarNode('page')->defaultValue(View\Page\PageView::class)->end()
                         ->scalarNode('section')->defaultValue(View\Section\SectionView::class)->end()
+                        ->scalarNode('catalog')->defaultValue(View\Catalog\CatalogView::class)->end()
                     ->end()
                 ->end()
             ->end()

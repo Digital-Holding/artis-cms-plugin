@@ -64,6 +64,9 @@ class Catalog implements CatalogInterface
      */
     protected $attachment;
 
+    /** @ORM\Column(name="url", type="text", nullable=true) */
+    protected $url;
+
     public function __construct( ) {
         $this->initializeTranslationsCollection();
     }
@@ -152,5 +155,17 @@ class Catalog implements CatalogInterface
         $attachment->setOwner($this);
 
         $this->attachment = $attachment;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
     }
 }

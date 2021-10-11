@@ -10,6 +10,7 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class CatalogType extends AbstractResourceType
@@ -35,7 +36,10 @@ final class CatalogType extends AbstractResourceType
             ])
             ->add('image', CatalogImagesType::class, [
                 'label' => false,
-                'required' => false,
+                'required' => true,
+            ])
+            ->add('url', TextType::class, [
+                'label' => 'sylius.ui.url',
             ])
             ->add('attachment', CatalogAttachmentType::class, [
                 'label' => false,

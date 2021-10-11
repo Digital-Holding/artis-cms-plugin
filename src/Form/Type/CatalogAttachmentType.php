@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace DH\ArtisCmsPlugin\Form\Type;
 
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-final class CatalogAttachmentType
+final class CatalogAttachmentType extends AbstractResourceType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
