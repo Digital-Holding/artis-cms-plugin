@@ -40,6 +40,7 @@ final class CatalogType extends AbstractResourceType
             ])
             ->add('url', TextType::class, [
                 'label' => 'sylius.ui.url',
+                'required' => false,
             ])
             ->add('attachment', CatalogAttachmentType::class, [
                 'label' => false,

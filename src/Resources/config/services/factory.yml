@@ -45,13 +45,11 @@ services:
             - "sylius_shop_api"
             - '%kernel.project_dir%'
 
-    artis_cms_plugin.factory.category.category_view_factory:
-        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Category\CategoryViewFactory
+    artis_cms_plugin.factory.category.catalog_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Catalog\CatalogViewFactory
         public: true
         arguments:
             - "@sylius.shop_api_plugin.factory.image_view_factory"
-            - '%digital_holding_artis_cms_plugin.view.page.class%'
+            - '%digital_holding_artis_cms_plugin.view.catalog.class%'
             - "@bitbag_sylius_cms_plugin.repository.media"
             - "@dh.factory.media.media_view_factory"
-            - "@sylius.shop_api_plugin.factory.product_variant_view_factory"
-            - "@sylius.context.channel"

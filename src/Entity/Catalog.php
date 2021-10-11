@@ -59,7 +59,7 @@ class Catalog implements CatalogInterface
      * )
      * @ORM\JoinColumn(
      *     onDelete="CASCADE",
-     *     nullable=false
+     *     nullable=true
      * )
      */
     protected $attachment;

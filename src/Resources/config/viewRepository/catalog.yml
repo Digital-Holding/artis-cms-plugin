@@ -1,8 +1,0 @@
-services:
-    artis_sylius_cms_plugin.view_repository.catalog.catalog_view_repository:
-        class: DH\ArtisCmsPlugin\ViewRepository\CatalogViewRepository
-        arguments:
-            - "@sylius.repository.channel"
-            - "@sylius.shop_api_plugin.provider.supported_locale_provider"
-            - "@artis_cms_plugin.repository.catalog"
-            - "@sylius.shop_api_plugin.factory.catalog_view_factory"

@@ -13,7 +13,7 @@ use Webmozart\Assert\Assert;
 final class CatalogAttachmentUploader implements CatalogAttachmentUploaderInterface
 {
     public const
-        FILE_PREFIX = 'artis_order_attachment_media'
+        FILE_PREFIX = 'catalog_attachment_media'
     ;
 
     private MediaFileServiceInterface $mediaFileService;
@@ -35,6 +35,9 @@ final class CatalogAttachmentUploader implements CatalogAttachmentUploaderInterf
         Assert::isInstanceOf($file, File::class);
 
         $filesystem = $this->mediaFileService->getFilesystem();
+        if (null !== $attachment->getPath() && $this->has($attachment->getPath())) {
+            $this->remove($attachment->getPath());
+        }
 
         if (null !== $attachment->getHash() && $this->mediaFileService->has($attachment->getHash())) {
             $this->mediaFileService->remove($attachment->getHash());
@@ -47,6 +50,7 @@ final class CatalogAttachmentUploader implements CatalogAttachmentUploaderInterf
             $this->mediaFileService->has($path)
         );
 
+        $attachment->setPath($path);
         $attachment->setHash($hash);
         $attachment->setMimeType($file->getMimeType());
         $attachment->setFileName($file->getClientOriginalName());
@@ -59,4 +63,17 @@ final class CatalogAttachmentUploader implements CatalogAttachmentUploaderInterf
         }
     }
 
+    public function remove(string $path): bool
+    {
+        if ($this->mediaFileService->has($path)) {
+            return $this->mediaFileService->delete($path);
+        }
+
+        return false;
+    }
+
+    private function has(string $path): bool
+    {
+        return $this->mediaFileService->has($path);
+    }
 }

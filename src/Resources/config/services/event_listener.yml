@@ -14,3 +14,19 @@ services:
         tags:
             - { name: kernel.event_listener, event: artis_cms_plugin.frequently_asked_question_section.pre_create, method: uploadImage }
             - { name: kernel.event_listener, event: artis_cms_plugin.frequently_asked_question_section.pre_update, method: uploadImage }
+
+    artis_cms_plugin.event_listener.catalog_image_upload:
+        class: Sylius\Bundle\CoreBundle\EventListener\ImageUploadListener
+        arguments:
+            - "@sylius.image_uploader"
+        tags:
+            - { name: kernel.event_listener, event: artis_cms_plugin.catalog.pre_create, method: uploadImage }
+            - { name: kernel.event_listener, event: artis_cms_plugin.catalog.pre_update, method: uploadImage }
+
+    artis_cms_plugin.event_listener.catalog_attachment_upload:
+        class:  DH\ArtisCmsPlugin\EventListener\AttachmentUploaderListener
+        arguments:
+            - "@artis_sylius_cms_plugin.catalog_attachment_uploader"
+        tags:
+            - { name: kernel.event_listener, event: artis_cms_plugin.catalog.pre_create, method: uploadAttachment }
+            - { name: kernel.event_listener, event: artis_cms_plugin.catalog.pre_update, method: uploadAttachment }

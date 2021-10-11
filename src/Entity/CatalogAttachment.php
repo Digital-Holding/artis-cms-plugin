@@ -34,10 +34,10 @@ class CatalogAttachment implements CatalogAttachmentInterface
     protected $file;
 
     /** @ORM\Column(name="path", type="text", nullable=false) */
-    protected ?string $path;
+    protected ?string $path=null;
 
     /** @ORM\Column(name="hash", type="text", nullable=false) */
-    protected ?string $hash;
+    protected ?string $hash=null;
 
     /** @ORM\Column(name="mime_type", type="text", nullable=false) */
     protected ?string $mimeType;
