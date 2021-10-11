@@ -4,6 +4,7 @@ imports:
     - { resource: services/event_listener.yml }
     - { resource: services/factory.yml }
     - { resource: viewRepository/page.yml }
+    - { resource: viewRepository/catalog.yml }
 
 services:
     artis_sylius_cms_plugin.menu.content_management:
