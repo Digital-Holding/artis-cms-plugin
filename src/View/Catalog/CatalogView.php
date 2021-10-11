@@ -6,6 +6,8 @@ namespace DH\ArtisCmsPlugin\View\Catalog;
 
 use DH\ArtisCmsPlugin\View\Media\MediaView;
 use Sylius\Component\Core\Model\ImageInterface;
+use Sylius\Component\Core\Model\Image;
+use Sylius\ShopApiPlugin\View\ImageView;
 
 class CatalogView
 {
@@ -17,7 +19,14 @@ class CatalogView
 
     public \DateTimeInterface $year;
 
-    public ImageInterface $image;
+    public ImageView $image;
 
-    public MediaView $attachment;
+    public ?CatalogAttachmentView $attachment;
+
+    public ?string $url;
+
+    public function __construct()
+    {
+        $this->image = new ImageView();
+    }
 }

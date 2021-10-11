@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace DH\ArtisCmsPlugin\Controller\Api\Catalog;
 
 use DH\ArtisCmsPlugin\Entity\CatalogInterface;
-use DH\ArtisCmsPlugin\Factory\ViewFactory\Category\CatalogViewFactory;
+use DH\ArtisCmsPlugin\Factory\ViewFactory\Catalog\CatalogViewFactory;
 use DH\ArtisCmsPlugin\Repository\CatalogRepositoryInterface;
 use DH\ArtisCmsPlugin\View\Catalog\CatalogView;
-use DH\ArtisCmsPlugin\View\Page\PageView;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use Sylius\ShopApiPlugin\Http\RequestBasedLocaleProviderInterface;
@@ -40,8 +39,8 @@ final class ShowCatalogByCode
 
     public function __invoke(Request $request): Response
     {
-        if ($request->attributes->has('year')) {
-            $year = $request->attributes->get('year');
+        if ($request->query->has('year')) {
+            $year = $request->query->get('year');
         } else {
             $datetime = new \DateTime('now');
             $year = $datetime->format('Y');
@@ -51,7 +50,7 @@ final class ShowCatalogByCode
 
         /** @var CatalogInterface $catalog */
         $catalog = $this->catalogRepository->findOneEnabledByCode(
-            $request->attributes->get('menuCode'),
+            $request->query->get('menuCode'),
             $year,
             $localeCode
         );

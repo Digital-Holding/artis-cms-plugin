@@ -51,5 +51,11 @@ services:
         arguments:
             - "@sylius.shop_api_plugin.factory.image_view_factory"
             - '%digital_holding_artis_cms_plugin.view.catalog.class%'
-            - "@bitbag_sylius_cms_plugin.repository.media"
-            - "@dh.factory.media.media_view_factory"
+            - "@artis_cms_plugin.factory.category.attachment_view_factory"
+
+    artis_cms_plugin.factory.category.attachment_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Catalog\AttachmentViewFactory
+        public: true
+        arguments:
+            - '%digital_holding_artis_cms_plugin.view.catalog_attachment.class%'
+            - '%kernel.project_dir%'
