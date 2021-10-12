@@ -28,7 +28,7 @@ class Catalog implements CatalogInterface
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected int $id;
+    protected $id;
 
     /** @ORM\Column(name="menu_code", type="text", nullable=true) */
     protected ?string $menuCode;
@@ -97,7 +97,7 @@ class Catalog implements CatalogInterface
         ];
     }
 
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }

@@ -20,7 +20,7 @@ interface CatalogInterface extends
 
     public const MENU_ADDITIONAL = 'additional_menu';
 
-    public function getId(): int;
+    public function getId();
 
     public function getTitle(): ?string;
 
