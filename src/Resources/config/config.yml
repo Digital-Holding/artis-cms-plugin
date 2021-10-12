@@ -3,3 +3,7 @@ imports:
     - { resource: "@DHArtisCmsPlugin/Resources/config/services.yml" }
     - { resource: "@DHArtisCmsPlugin/Resources/config/resources.yml" }
     - { resource: "@DHArtisCmsPlugin/Resources/config/grids.yml" }
+    - { resource: "@DHArtisCmsPlugin/Resources/config/packages/*.yml" }
+
+parameters:
+    artis_cms.var_dir: '%kernel.project_dir%/public'

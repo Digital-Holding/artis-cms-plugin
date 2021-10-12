@@ -44,3 +44,18 @@ services:
             - "@liip_imagine.service.filter"
             - "sylius_shop_api"
             - '%kernel.project_dir%'
+
+    artis_cms_plugin.factory.category.catalog_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Catalog\CatalogViewFactory
+        public: true
+        arguments:
+            - "@sylius.shop_api_plugin.factory.image_view_factory"
+            - '%digital_holding_artis_cms_plugin.view.catalog.class%'
+            - "@artis_cms_plugin.factory.category.attachment_view_factory"
+
+    artis_cms_plugin.factory.category.attachment_view_factory:
+        class: DH\ArtisCmsPlugin\Factory\ViewFactory\Catalog\AttachmentViewFactory
+        public: true
+        arguments:
+            - '%digital_holding_artis_cms_plugin.view.catalog_attachment.class%'
+            - '%kernel.project_dir%'

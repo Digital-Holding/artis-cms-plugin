@@ -1,0 +1,27 @@
+services:
+    artis_sylius_cms_plugin.view_repository.catalog.catalog_view_repository:
+        class: DH\ArtisCmsPlugin\ViewRepository\CatalogViewRepository
+        arguments:
+            - "@sylius.repository.channel"
+            - "@sylius.shop_api_plugin.provider.supported_locale_provider"
+            - "@artis_cms_plugin.repository.catalog"
+            - "@sylius.shop_api_plugin.factory.catalog_view_factory"
+
+    artis_sylius_cms_plugin.catalog_attachment_uploader:
+        class:  DH\ArtisCmsPlugin\Uploader\CatalogAttachmentUploader
+        public: true
+        arguments:
+            - "@artis_cms_plugin.service.media_file_service"
+
+    artis_cms_plugin.service.media_file_service:
+        class: DH\ArtisCmsPlugin\Service\MediaFileService
+        public: true
+        arguments:
+            - "@artis_cms_plugin.filesystem"
+            - "catalog_attachment_media"
+
+    artis_cms_plugin.filesystem:
+        class: Gaufrette\Filesystem
+        factory: ['@knp_gaufrette.filesystem_map', get]
+        arguments:
+            - "catalog_attachment_media"

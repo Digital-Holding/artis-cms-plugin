@@ -1,0 +1,15 @@
+knp_gaufrette:
+    adapters:
+        catalog_attachment_media:
+            local:
+                directory: "%artis_cms.var_dir%/uploads"
+                create: true
+
+    filesystems:
+        catalog_attachment_media:
+            adapter: catalog_attachment_media
+
+    stream_wrapper:
+        protocol: data
+        filesystems:
+            - catalog_attachment_media

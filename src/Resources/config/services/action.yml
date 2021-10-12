@@ -91,3 +91,12 @@ services:
             - "@fos_rest.view_handler"
             - "@bitbag_sylius_cms_plugin.repository.section"
             - "@artis_cms_plugin.factory.section.section_view_factory"
+
+    artis_cms_plugin.controller.catalog.show_action:
+        class: DH\ArtisCmsPlugin\Controller\Api\Catalog\ShowCatalogByCode
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@artis_cms_plugin.repository.catalog"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@artis_cms_plugin.factory.category.catalog_view_factory"

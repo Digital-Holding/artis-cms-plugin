@@ -70,3 +70,34 @@ services:
         class: DH\ArtisCmsPlugin\Form\Extension\PageTranslationTypeExtension
         tags:
             - { name: form.type_extension , extended_type: BitBag\SyliusCmsPlugin\Form\Type\Translation\PageTranslationType }
+
+    artis_cms_plugin.form.type.catalog:
+        class: DH\ArtisCmsPlugin\Form\Type\CatalogType
+        arguments:
+            - "%artis_cms_plugin.model.catalog.class%"
+            - ['artis']
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.type.catalog_translation:
+        class: DH\ArtisCmsPlugin\Form\Type\Translation\CatalogTranslationType
+        arguments:
+            - "%artis_cms_plugin.model.catalog_translation.class%"
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.type.catalog_image:
+        class: DH\ArtisCmsPlugin\Form\Type\CatalogImagesType
+        arguments:
+            - "%artis_cms_plugin.model.catalog_image.class%"
+            - [ 'artis' ]
+        tags:
+            - { name: form.type }
+
+    artis_cms_plugin.form.type.catalog_attachment:
+        class: DH\ArtisCmsPlugin\Form\Type\CatalogAttachmentType
+        arguments:
+            - "%artis_cms_plugin.model.catalog_attachment.class%"
+            - [ 'artis' ]
+        tags:
+            - { name: form.type }

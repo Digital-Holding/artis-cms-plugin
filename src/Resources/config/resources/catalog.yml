@@ -1,0 +1,28 @@
+sylius_resource:
+    resources:
+        artis_cms_plugin.catalog:
+            driver: doctrine/orm
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\Catalog
+                interface: DH\ArtisCmsPlugin\Entity\CatalogInterface
+                form: DH\ArtisCmsPlugin\Form\Type\CatalogType
+                repository: DH\ArtisCmsPlugin\Repository\CatalogRepository
+            translation:
+                classes:
+                    model: DH\ArtisCmsPlugin\Entity\CatalogTranslation
+                    form: DH\ArtisCmsPlugin\Form\Type\Translation\CatalogTranslationType
+                    interface: DH\ArtisCmsPlugin\Entity\CatalogTranslationInterface
+
+        artis_cms_plugin.catalog_image:
+            driver: doctrine/orm
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\CatalogImage
+                interface: DH\ArtisCmsPlugin\Entity\CatalogImageInterface
+                form: DH\ArtisCmsPlugin\Form\Type\CatalogImageType
+
+        artis_cms_plugin.catalog_attachment:
+            driver: doctrine/orm
+            classes:
+                model: DH\ArtisCmsPlugin\Entity\CatalogAttachment
+                interface: DH\ArtisCmsPlugin\Entity\CatalogAttachmentInterface
+                form: DH\ArtisCmsPlugin\Form\Type\CatalogAttachmentType

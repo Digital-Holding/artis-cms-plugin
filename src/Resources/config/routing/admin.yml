@@ -12,3 +12,6 @@ artis_cms_plugin_admin_page:
 
 artis_cms_plugin_admin_product_variant:
     resource: "@DHArtisCmsPlugin/Resources/config/routing/admin/product_variant.yml"
+
+artis_cms_plugin_admin_catalog:
+    resource: "@DHArtisCmsPlugin/Resources/config/routing/admin/catalog.yml"
