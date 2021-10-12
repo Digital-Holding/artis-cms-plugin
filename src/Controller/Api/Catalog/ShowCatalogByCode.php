@@ -50,7 +50,7 @@ final class ShowCatalogByCode
 
         /** @var CatalogInterface $catalog */
         $catalog = $this->catalogRepository->findOneEnabledByCode(
-            $request->query->get('menuCode'),
+            $request->attributes->get('code'),
             $year,
             $localeCode
         );
