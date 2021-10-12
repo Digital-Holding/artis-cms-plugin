@@ -33,12 +33,9 @@ final class AttachmentViewFactory implements AttachmentViewFactoryInterface
 
         if (file_exists($attachmentDir)) {
             $attachmentView->alt = $media->getFileName();
-            $attachmentView->path = $media->getPath();
+            $attachmentView->path = $attachmentDir;
         }
 
-
-
         return $attachmentView;
-
     }
 }
