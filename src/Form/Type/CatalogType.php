@@ -30,6 +30,7 @@ final class CatalogType extends AbstractResourceType
                 'entry_type' => CatalogTranslationType::class,
             ])
             ->add('year', DateType::class, [
+                'html5' => false,
                 'widget' => 'single_text',
                 'format' => 'y',
                 'label' => 'sylius.ui.year',
