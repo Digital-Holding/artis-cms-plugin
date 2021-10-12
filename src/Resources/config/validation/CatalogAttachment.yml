@@ -1,6 +1,6 @@
 DH\ArtisCmsPlugin\Entity\CatalogAttachment:
     properties:
         file:
-            - Image:
+            - File:
                   uploadIniSizeErrorMessage: artis_cms_plugin.product_image.file.upload_ini_size
                   groups: ['artis']
