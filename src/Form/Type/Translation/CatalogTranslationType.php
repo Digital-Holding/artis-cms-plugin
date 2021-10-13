@@ -18,7 +18,7 @@ final class CatalogTranslationType extends AbstractResourceType
                 'label' => 'sylius.ui.title',
             ])
             ->add('subtitle', TextType::class, [
-                'label' => 'sylius.ui.subtitle',
+                'label' => 'artis_cms_plugin.ui.subtitle',
             ])
         ;
     }
