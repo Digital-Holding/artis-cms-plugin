@@ -18,3 +18,14 @@ artis_cms_plugin:
         catalog_subheader: Zarzącaj Katalogami
         catalog_header: Katalogi
         catalogs: Katalogi
+        subtitle: Podtytuł
+        year: Rok
+        url: Adres url
+
+
+    form:
+        catalog:
+            main_menu: Główne menu
+            additional_menu: Dodatkowe menu
+        attachment:
+            file: Załącznik
