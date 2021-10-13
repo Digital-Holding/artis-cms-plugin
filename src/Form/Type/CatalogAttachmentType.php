@@ -14,7 +14,7 @@ final class CatalogAttachmentType extends AbstractResourceType
     {
         $builder
             ->add('file', FileType::class, [
-                'label' => 'sylius.form.attachment.file',
+                'label' => 'artis_cms_plugin.form.attachment.file',
             ])
         ;
     }

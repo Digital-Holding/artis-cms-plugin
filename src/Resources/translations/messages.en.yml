@@ -18,3 +18,13 @@ artis_cms_plugin:
         catalog_subheader: Manage Catalog
         catalog_header: Catalog
         catalogs: Catalog list
+        subtitle: Subtitle
+        year: Year
+        url: Addres Url
+
+    form:
+        catalog:
+            main_menu: Main menu
+            additional_menu: Additional menu
+        attachment:
+            file: Attachment

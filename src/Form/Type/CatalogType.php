@@ -22,7 +22,7 @@ final class CatalogType extends AbstractResourceType
                 'label' => 'sylius.ui.menus',
                 'choices' => Catalog::getAllMenuCodes(),
                 'choice_label' => function ($choice) {
-                    return 'artis.form.catalog.' . $choice;
+                    return 'artis_cms_plugin.form.catalog.' . $choice;
                 }
             ])
             ->add('translations', ResourceTranslationsType::class, [
@@ -33,14 +33,14 @@ final class CatalogType extends AbstractResourceType
                 'html5' => false,
                 'widget' => 'single_text',
                 'format' => 'y',
-                'label' => 'sylius.ui.year',
+                'label' => 'artis_cms_plugin.ui.year',
             ])
             ->add('image', CatalogImagesType::class, [
                 'label' => false,
                 'required' => true,
             ])
             ->add('url', TextType::class, [
-                'label' => 'sylius.ui.url',
+                'label' => 'artis_cms_plugin.ui.url',
                 'required' => false,
             ])
             ->add('attachment', CatalogAttachmentType::class, [
