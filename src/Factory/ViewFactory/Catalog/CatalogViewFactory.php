@@ -39,7 +39,7 @@ final class CatalogViewFactory implements CatalogViewInterface
         $catalogView->menuCode = $catalog->getMenuCode();
         $catalogView->title = $catalogTranslation->getTitle();
         $catalogView->subTitle = $catalogTranslation->getSubtitle();
-        $catalogView->year = $catalog->getYear();
+        $catalogView->year = null !== $catalog->getYear() ? $catalog->getYear()->format('Y') : null;
         $catalogView->url = $catalog->getUrl();
         $catalogView->image = $this->imageViewFactory->create(
             $catalog->getImage()

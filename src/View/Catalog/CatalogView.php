@@ -17,7 +17,7 @@ class CatalogView
 
     public string $subTitle;
 
-    public \DateTimeInterface $year;
+    public string $year;
 
     public ImageView $image;
 
