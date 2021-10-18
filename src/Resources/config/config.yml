@@ -6,4 +6,8 @@ imports:
     - { resource: "@DHArtisCmsPlugin/Resources/config/packages/*.yml" }
 
 parameters:
-    artis_cms.var_dir: '%kernel.project_dir%/public'
+    artis_cms.public_dir: '%kernel.project_dir%/public'
+
+twig:
+    globals:
+        public_dir: "%artis_cms.public_dir%"

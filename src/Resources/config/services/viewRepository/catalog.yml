@@ -17,10 +17,10 @@ services:
         class: DH\ArtisCmsPlugin\Service\MediaFileService
         public: true
         arguments:
-            - "@artis_cms_plugin.filesystem"
+            - "@artis_cms_plugin.catalog.filesystem"
             - "catalog_attachment_media"
 
-    artis_cms_plugin.filesystem:
+    artis_cms_plugin.catalog.filesystem:
         class: Gaufrette\Filesystem
         factory: ['@knp_gaufrette.filesystem_map', get]
         arguments:

@@ -42,8 +42,7 @@ final class ShowCatalogByCode
         if ($request->query->has('year')) {
             $year = $request->query->get('year');
         } else {
-            $datetime = new \DateTime('now');
-            $year = $datetime->format('Y');
+            $year = null;
         }
 
         $localeCode = $this->requestBasedLocaleProvider->getLocaleCode($request);

@@ -22,11 +22,11 @@ sylius_grid:
                     sortable: ~
                 subtitle:
                     type: string
-                    label: sylius.ui.subtitle
+                    label: artis_cms_plugin.ui.subtitle
                     sortable: ~
                 year:
                     type: twig
-                    label: sylius.ui.year
+                    label: artis_cms_plugin.ui.year
                     options:
                         template: "@DHArtisCmsPlugin/Catalog/Grid/Field/year.html.twig"
             filters:
