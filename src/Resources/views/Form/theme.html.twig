@@ -19,3 +19,44 @@
 {% block artis_cms_plugin_product_variant_autocomplete_choice_row %}
     {{ form_row(form, {'remote_url': path('artis_sylius_cms_plugin_admin_ajax_product_variant_by_name_phrase'), 'load_edit_url': path('artis_sylius_cms_plugin_admin_ajax_product_variant_by_code')}) }}
 {% endblock %}
+
+{% block artis_cms_plugin_catalog_images_widget %}
+    {% apply spaceless %}
+        <label for="{{ form.file.vars.id }}" class="ui icon labeled button"><i class="cloud upload icon"></i> {{ 'sylius.ui.choose_file'|trans }}</label>
+        {% if form.vars.value.path|default(null) is not null %}
+            <img class="ui small bordered image" src="{{ form.vars.value.path|imagine_filter('sylius_small') }}" alt="{{ form.vars.value.type }}" />
+        {% endif %}
+        <div class="ui hidden element">
+            {{ form_widget(form.file) }}
+        </div>
+        <div class="ui element">
+            {{- form_errors(form.file) -}}
+        </div>
+    {% endapply %}
+{% endblock %}
+
+{% block artis_cms_plugin_catalog_attachment_widget %}
+    {% apply spaceless %}
+        {% if form.vars.value.fileName|default(null) is not null %}
+            {% set attachmentPath = app.request.getSchemeAndHttpHost() ~ "/uploads/" ~ form.vars.value.path %}
+            <div class="ui segment">
+                <a href="{{ attachmentPath }}" download="{{ form.vars.value.fileName }}">
+                    {{ form.vars.value.fileName }}
+                </a>
+
+                <div class="ui hidden element">
+                    {{ form_widget(form.file) }}
+                </div>
+                <div style="margin-top: 10px">
+                    <label for="{{ form.file.vars.id }}" class="ui icon labeled button"><i
+                                class="cloud upload icon"></i> {{ 'sylius.ui.choose_file'|trans }}</label>
+                </div>
+            </div>
+        {% else %}
+            {{ form_widget(form) }}
+        {% endif %}
+        <div class="ui element">
+            {{- form_errors(form.file) -}}
+        </div>
+    {% endapply %}
+{% endblock %}

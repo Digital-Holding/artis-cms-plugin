@@ -15,9 +15,9 @@ class CatalogRepository extends EntityRepository implements CatalogRepositoryInt
         return $this->createQueryBuilder('o')
             ->addSelect('translation')
             ->leftJoin('o.translations', 'translation', 'WITH', 'translation.locale = :localeCode')
-            ->setParameter('localeCode', $localeCode)
-            ;
+            ->setParameter('localeCode', $localeCode);
     }
+
     public function getCatalogByCode(string $menuCode, string $year, ?string $localeCode): QueryBuilder
     {
         return $this->createQueryBuilder('o')
@@ -27,25 +27,28 @@ class CatalogRepository extends EntityRepository implements CatalogRepositoryInt
             ->andWhere('o.menu_code = :menu_code')
             ->setParameter('menu_code', $menuCode)
             ->andWhere('o.year = :year')
-            ->setParameter('year', $year)
-            ;
+            ->setParameter('year', $year);
     }
 
-    public function findOneEnabledByCode(string $menuCode, string $year, ?string $localeCode): ?CatalogInterface
+    public function findOneEnabledByCode(string $menuCode, ?string $year, ?string $localeCode): ?CatalogInterface
     {
-        return $this->createQueryBuilder('o')
+        $qb = $this->createQueryBuilder('o')
             ->leftJoin('o.translations', 'translation')
             ->where('translation.locale = :localeCode')
             ->setParameter('localeCode', $localeCode)
             ->andWhere('o.menuCode = :menu_code')
             ->setParameter('menu_code', $menuCode)
-            ->andWhere('o.year = :year')
-            ->setParameter('year', $year.'-01-01 00:00:00')
             ->orderBy('o.id', 'DESC')
-            ->setMaxResults(1)
+            ->setMaxResults(1);
+
+        if (null !== $year) {
+            $qb->andWhere('o.year = :year')
+                ->setParameter('year', $year . '-01-01 00:00:00');
+        }
+
+        return $qb
             ->getQuery()
-            ->getOneOrNullResult()
-            ;
+            ->getOneOrNullResult();
     }
 
 }

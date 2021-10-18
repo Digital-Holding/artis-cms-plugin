@@ -22,7 +22,6 @@ artis_cms_plugin:
         year: Rok
         url: Adres url
 
-
     form:
         catalog:
             main_menu: Główne menu

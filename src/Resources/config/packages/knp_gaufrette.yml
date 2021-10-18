@@ -2,7 +2,7 @@ knp_gaufrette:
     adapters:
         catalog_attachment_media:
             local:
-                directory: "%artis_cms.var_dir%/uploads"
+                directory: "%artis_cms.public_dir%/uploads"
                 create: true
 
     filesystems:

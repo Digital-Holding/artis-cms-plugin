@@ -59,3 +59,6 @@ services:
         arguments:
             - '%digital_holding_artis_cms_plugin.view.catalog_attachment.class%'
             - '%kernel.project_dir%'
+            - "@artis_cms_plugin.catalog.filesystem"
+            - "catalog_attachment_media"
+            - "@router"

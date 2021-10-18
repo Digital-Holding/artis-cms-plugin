@@ -20,7 +20,7 @@ artis_cms_plugin:
         catalogs: Catalog list
         subtitle: Subtitle
         year: Year
-        url: Addres Url
+        url: Url Address
 
     form:
         catalog:

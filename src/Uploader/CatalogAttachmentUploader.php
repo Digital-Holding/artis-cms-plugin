@@ -66,7 +66,7 @@ final class CatalogAttachmentUploader implements CatalogAttachmentUploaderInterf
     public function remove(string $path): bool
     {
         if ($this->mediaFileService->has($path)) {
-            return $this->mediaFileService->delete($path);
+            return $this->mediaFileService->remove($path);
         }
 
         return false;
